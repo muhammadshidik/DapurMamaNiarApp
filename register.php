@@ -40,7 +40,7 @@ $queryLevel = mysqli_query($config, "SELECT * FROM level ORDER BY id ASC");
 <head>
   <meta charset="UTF-8">
   <title>Regsiter | Dapur Mama Niar</title>
-   <link rel="icon" href="admin/content/uploads/image.png" type="image/x-icon">
+   <link rel="icon" href="admin/content/uploads/Foto/dpn.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -97,10 +97,11 @@ $queryLevel = mysqli_query($config, "SELECT * FROM level ORDER BY id ASC");
 <body>
 
 <div class="card">
-  <div class="text-center mb-4">
-    <h3 class="fw-bold"><i class="bi bi-person-plus-fill text-primary"></i> Create Account</h3>
-    <p class="text-muted mb-1">Welcome! Please fill your details</p>
-  </div>
+   <div class="text-center mb-4">
+      <img src="admin/content/uploads/Foto/dpn.png" alt="Logo" class="mb-3" style="max-width: 100px;">
+      <h2 class="fw-semibold">Dapur Mama Niar</h2>
+      <p class="text-muted mb-0">Silakan daftarkan akun Anda</p>
+    </div> 
 
   <?php if (isset($_GET['error'])): ?>
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -149,7 +150,7 @@ $queryLevel = mysqli_query($config, "SELECT * FROM level ORDER BY id ASC");
   </form>
 
   <div class="text-center mt-3">
-    <small>Sudah punya akun? <a href="login.php" class="text-decoration-none text-primary">Login</a></small>
+    <small>Sudah punya akun? <a href="index.php" class="text-decoration-none text-primary">Login</a></small>
   </div>
 </div>
 

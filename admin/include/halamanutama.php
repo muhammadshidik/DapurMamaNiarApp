@@ -25,27 +25,23 @@ if (empty($_SESSION['id'])) {
 ?>
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="admin/content/uploads/Foto/dpn.png" type="image/x-icon">
+  <link rel="icon" href="admin/content/uploads/image.png" type="image/x-icon">
   <title>Dapur Mama Niar</title>
-  <?php include 'admin/inc/css.php' ?>
+  <?php include 'admin/include/css.php' ?>
 </head>
 
-<body class="horizontal dark  ">
+<body class="vertical dark">
   <div class="wrapper">
-
-    <!-- start navbar -->
-    <?php include 'admin/inc/navbar1.php' ?>
-    <!-- end navbar -->
-    <!-- start content -->
+    <?php include 'admin/include/header.php' ?>
+    <?php include 'admin/include/sidebar.php' ?>
     <main role="main" class="main-content">
       <div class="container-fluid">
-         <?php
+        <?php
         // Memeriksa apakah parameter 'page' ada di URL.
         if (isset($_GET['page'])) {
           // Memeriksa apakah file PHP dengan nama yang sesuai dengan parameter 'page'
@@ -63,12 +59,10 @@ if (empty($_SESSION['id'])) {
           include 'admin/content/dashboard.php';
         }
         ?>
-      </div>
-    </main>
-    <!-- end content -->
-    <!-- main -->
+
+    </main> <!-- main -->
   </div> <!-- .wrapper -->
-  <?php include 'admin/inc/js.php' ?>
+  <?php include 'admin/include/js.php' ?>
 </body>
 
 </html>

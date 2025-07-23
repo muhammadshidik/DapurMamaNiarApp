@@ -11,7 +11,7 @@
      <!-- nav bar -->
      <div class="w-100 mb-4 d-flex">
        <a class="navbar-brand mx-auto mt-2 flex-fill d-flex align-items-center justify-content-center text-decoration-none" href="./index.html">
-         <img src="admin/content/uploads/Foto/image.png" alt="Logo" style="height: 52px; width: 52px; margin-right: 10px;">
+         <img src="admin/content/uploads/Foto/dpn.png" alt="Logo" style="height: 52px; width: 52px; margin-right: 10px;">
          <span class="bold fs-5 text-body">Dapur Mama Niar</span>
        </a>
      </div>

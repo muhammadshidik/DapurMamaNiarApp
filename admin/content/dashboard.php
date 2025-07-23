@@ -136,12 +136,6 @@ $featuredItems = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
 <div class="container mt-5">
   <!-- Hero Section -->
-  <div class="hero-section shadow-sm">
-    <h1>Selamat Datang di <span class="text-primary">Dapur Mama Niar</span></h1>
-    <p>Kami menyediakan berbagai pilihan menu catering yang lezat dan terjangkau untuk segala kebutuhan Anda!</p>
-    <a href="?page=menu" class="btn btn-primary mt-4 px-4 py-2">Lihat Menu Lengkap</a>
-  </div>
-
   <!-- Section Title -->
   <div class="text-center mb-4">
     <h2 class="section-title">Menu Terfavorit</h2>
