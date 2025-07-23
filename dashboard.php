@@ -19,7 +19,7 @@ require_once 'admin/controller/koneksi.php';
   <div class="wrapper">
 
     <!-- start navbar -->
-    <?php include 'admin/inc/navbar.php' ?>
+    <?php include 'admin/inc/header.php' ?>
     <!-- end navbar -->
     <!-- start content -->
     <main role="main" class="main-content">

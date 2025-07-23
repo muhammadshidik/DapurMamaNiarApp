@@ -40,7 +40,7 @@ if (empty($_SESSION['id'])) {
   <div class="wrapper">
 
     <!-- start navbar -->
-    <?php include 'admin/inc/navbar1.php' ?>
+    <?php include 'admin/inc/navbar.php' ?>
     <!-- end navbar -->
     <!-- start content -->
     <main role="main" class="main-content">
