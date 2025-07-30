@@ -19,8 +19,8 @@ require_once 'admin/controller/functions.php';
 
 // Mengecek apakah session 'id' kosong (belum login atau session habis)
 if (empty($_SESSION['id'])) {
-  // Jika belum login, arahkan pengguna ke halaman logout (biasanya akan diarahkan ke login page lagi)
-  header('Location: admin/controller/logout.php');
+	// Jika belum login, arahkan pengguna ke halaman logout (biasanya akan diarahkan ke login page lagi)
+	header('Location: admin/controller/logout.php');
 }
 ?>
 <!doctype html>

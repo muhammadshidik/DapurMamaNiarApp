@@ -1,4 +1,7 @@
   <?php
+    require_once 'admin/controller/koneksi.php';
+    // Memanggil file yang berisi fungsi-fungsi tambahan
+    require_once 'admin/controller/functions.php';
     $navbarID = $_SESSION['id'];
     $queryNavbar = mysqli_query($config, "SELECT * FROM user WHERE id = '$navbarID'");
     $dataNavbar = mysqli_fetch_assoc($queryNavbar);
@@ -18,17 +21,11 @@
               </a>
               <ul class="navbar-nav mr-auto">
                   <?php if ($dataNavbar['id_level'] == 1) : ?>
-                      <li class="nav-item dropdown">
-                          <a href="#" id="dashboardDropdown" class="dropdown-toggle nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <span class="ml-lg-2">Beranda</span><span class="sr-only">(current)</span>
+                      <li class="nav-item">
+                          <a class="nav-link" href="hello.php">
+                              <span class="ml-lg-2">Beranda</span>
+                              <!-- <span class="badge badge-pill badge-primary">New</span> -->
                           </a>
-                          <div class="dropdown-menu" aria-labelledby="dashboardDropdown">
-                              <a class="nav-link pl-lg-2" href="?page=dashboard"><span class="ml-1"></span>Homepage</a>
-                              <a class="nav-link pl-lg-2" href="dashboard.php"><span class="ml-1">Beranda</span></a>
-                              <a class="nav-link pl-lg-2" href="./dashboard-sales.html"><span class="ml-1">E-commerce</span></a>
-                              <a class="nav-link pl-lg-2" href="./dashboard-saas.html"><span class="ml-1">Saas Dashboard</span></a>
-                              <a class="nav-link pl-lg-2" href="./dashboard-system.html"><span class="ml-1">Systems</span></a>
-                          </div>
                       </li>
                       <li class="nav-item dropdown">
                           <a href="#" id="ui-elementsDropdown" class="dropdown-toggle nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,20 +36,32 @@
                                   <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['user', 'add-user'])) ? 'class="active"' : '' ?>>Penambahan Akses</span>
                               </a>
                               <a class="nav-link pl-lg-2" href="?page=level">
-                                <span class="ml-1"  <?= (isset($_GET['page']) && in_array($_GET['page'], ['level', 'add-level'])) ? 'class="active"' : '' ?>>Penambahan Role</span>
-                            </a>
-                              <a class="nav-link pl-lg-2" href="./ui-icons.html"><span class="ml-1">Icons</span></a>
-                              <a class="nav-link pl-lg-2" href="./ui-buttons.html"><span class="ml-1">Buttons</span></a>
-                              <a class="nav-link pl-lg-2" href="./ui-notification.html"><span class="ml-1">Notifications</span></a>
-                              <a class="nav-link pl-lg-2" href="./ui-modals.html"><span class="ml-1">Modals</span></a>
-                              <a class="nav-link pl-lg-2" href="./ui-tabs-accordion.html"><span class="ml-1">Tabs & Accordion</span></a>
-                              <a class="nav-link pl-lg-2" href="./ui-progress.html"><span class="ml-1">Progress</span></a>
+                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['level', 'add-level'])) ? 'class="active"' : '' ?>>Penambahan Role</span>
+                              </a>
+                              <a class="nav-link pl-lg-2" href="?page=pelanggan">
+                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['pelanggan', 'add-pelanggan'])) ? 'class="active"' : '' ?>>Data Pelanggan
+                                  </span>
+                              </a>
+                                  <a class="nav-link pl-lg-2" href="?page=produk">
+                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['produk', 'add-produk'])) ? 'class="active"' : '' ?>>Data Produk
+                                  </span>
+                              </a>
+                              </a>
+                                  <a class="nav-link pl-lg-2" href="?page=category">
+                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['category', 'add-category'])) ? 'class="active"' : '' ?>>Data Kategori
+                                  </span>
+                              </a>
+                                </a>
+                                  <a class="nav-link pl-lg-2" href="?page=jenisPaket">
+                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['jenisPaket', 'add-jenisPaket'])) ? 'class="active"' : '' ?>>Data Paket Catering
+                                  </span>
+                              </a>
                           </div>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="widgets.html">
-                              <span class="ml-lg-2">Widgets</span>
-                              <span class="badge badge-pill badge-primary">New</span>
+                          <a class="nav-link" href="?page=menu">
+                              <span class="ml-lg-2">Transaksi</span>
+                              <span class="badge badge-pill badge-primary">Menu</span>
                           </a>
                       </li>
                       <li class="nav-item dropdown">

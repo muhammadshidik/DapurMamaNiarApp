@@ -24,7 +24,8 @@ if (isset($_GET['delete'])) {
     die;
 }
 ?>
-<div class="card shadow">
+<div class="container">
+   <div class="card shadow">
     <div class="card-header">
         <h3><?= isset($_GET['edit']) ? 'Edit' : 'Add' ?> Level</h3>
     </div>
@@ -45,4 +46,5 @@ if (isset($_GET['delete'])) {
             </div>
         </form>
     </div>
+</div> 
 </div>

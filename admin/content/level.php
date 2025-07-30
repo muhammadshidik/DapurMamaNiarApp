@@ -10,14 +10,14 @@ $queryData = mysqli_query($config, "SELECT * FROM level ORDER BY id ASC");
         </div>
         <div class="card-body">
             <?php include 'admin/controller/alert-data-crud.php' ?>
-            <div align="right" class="button-action">
-                <a href="?page=tambah-level" class="btn btn-primary btn-sm"><i class='bx bx-plus bx-22px'>Tambah Level</i></a>
+            <div class="button-action">
+                <a href="?page=tambah-level" class="btn btn-primary btn-sm">Tambah Akses</a>
             </div>
             <table class="table table-borderless table-hover mt-3">
-                <thead>
+                <thead class="table-dark">
                     <tr>
                         <th>No</th>
-                        <th>Nama Role</th>
+                        <th>Pemegang Akses</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -31,13 +31,13 @@ $queryData = mysqli_query($config, "SELECT * FROM level ORDER BY id ASC");
                             <td>
                                 <a href="?page=tambah-level&edit=<?php echo $rowData['id'] ?>">
                                     <button class="btn btn-secondary btn-sm">
-                                        <i class="tf-icon bx bx-edit bx-22px">Edit </i>
+                                        Ubah
                                     </button>
                                 </a>
                                 <a onclick="return confirm ('Apakah anda yakin akan menghapus data ini?')"
                                     href="?page=tambah-level&delete=<?php echo $rowData['id'] ?>">
                                     <button class="btn btn-danger btn-sm">
-                                        <i class="tf-icon bx bx-trash bx-22px">Delete</i>
+                                      Hapus
                                     </button>
                                 </a>
                             </td>
