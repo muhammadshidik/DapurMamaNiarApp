@@ -326,11 +326,13 @@ if ($stmt_produk) {
 									class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1"
 									data-id="<?php echo $row_produk['id']; ?>"
 									data-nama="<?php echo htmlspecialchars($row_produk['nama_produk']); ?>"
-									data-harga="<?php echo number_format($row_produk['harga'], 0, ',', '.'); ?>"
+									data-harga="<?php echo $row_produk['harga']; ?>"
 									data-deskripsi="<?php echo htmlspecialchars($row_produk['deskripsi']); ?>"
-									data-gambar="admin/content/uploads/Foto/<?php echo htmlspecialchars($row_produk['gambar']); ?>">
-									Quick View
+									data-gambar="admin/content/uploads/Foto/<?php echo htmlspecialchars($row_produk['gambar']); ?>"
+									data-gambar-lain='["admin/content/uploads/Foto/<?php echo htmlspecialchars($row_produk["gambar"]); ?>"]'>
+									Lihat Detail
 								</a>
+
 
 							</div>
 
@@ -340,7 +342,8 @@ if ($stmt_produk) {
 										<?php echo htmlspecialchars($row_produk['nama_produk']); ?>
 									</a>
 									<span class="stext-105 cl3">
-										Rp.<?php echo number_format($row_produk['harga'], 0, ',', '.'); ?>
+										Rp.<?php echo number_format($row_produk['harga'] * 1000, 0, ',', '.'); ?>
+
 									</span>
 								</div>
 
@@ -358,15 +361,15 @@ if ($stmt_produk) {
 				<div class="col-12 text-center">
 					<p class="stext-106 cl6">Tidak ada produk yang ditemukan untuk kategori ini.</p>
 				</div>
-			<?php endif; ?>
-
+				<?php endif; ?>
+				
+			</div>
 			<!-- Load more -->
 			<div class="flex-c-m flex-w w-full p-t-45">
 				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
 					Tampilkan Lebih Banyak
 				</a>
 			</div>
-		</div>
 		<?php
 		// Tutup prepared statement dan koneksi database
 		if (isset($stmt_produk)) {
@@ -386,30 +389,60 @@ document.addEventListener('DOMContentLoaded', function () {
 		btn.addEventListener('click', function (e) {
 			e.preventDefault();
 
-			const modal = document.querySelector('.js-modal1'); // Modal global
+			const modal = document.querySelector('.js-modal1');
 			const nama = this.getAttribute('data-nama');
 			const harga = this.getAttribute('data-harga');
 			const deskripsi = this.getAttribute('data-deskripsi');
-			const gambar = this.getAttribute('data-gambar');
+			const gambarUtama = this.getAttribute('data-gambar');
+			const gambarLainJSON = this.getAttribute('data-gambar-lain');
 
-			// Isi modal dengan data
+			// Isi judul, harga, deskripsi
 			modal.querySelector('.js-name-detail').textContent = nama;
 			modal.querySelector('.mtext-106').textContent = 'Rp.' + harga;
 			modal.querySelector('.js-modal-desc').textContent = deskripsi;
 
-			// Update gambar utama di slider
-			const imageEls = modal.querySelectorAll('.slick3 .wrap-pic-w img');
-			imageEls.forEach(img => {
-				img.src = gambar;
-				img.closest('a').href = gambar;
+			// Bersihkan isi gallery lama
+			const gallery = modal.querySelector('.js-gallery-dinamis');
+			gallery.innerHTML = '';
+
+			let gambarArray;
+			try {
+				gambarArray = JSON.parse(gambarLainJSON);
+			} catch (e) {
+				gambarArray = [gambarUtama];
+			}
+
+			// Tambahkan gambar-gambar baru
+			gambarArray.forEach(function (src) {
+				const itemHTML = `
+					<div class="item-slick3" data-thumb="${src}">
+						<div class="wrap-pic-w pos-relative">
+							<img src="${src}" alt="IMG-PRODUCT">
+							<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${src}">
+								<i class="fa fa-expand"></i>
+							</a>
+						</div>
+					</div>
+				`;
+				gallery.insertAdjacentHTML('beforeend', itemHTML);
 			});
 
-			// Tampilkan modal
+			// Reinit slick setelah inject gambar
+			if ($(gallery).hasClass('slick-initialized')) {
+				$(gallery).slick('unslick');
+			}
+			$(gallery).slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: true,
+				fade: true,
+				asNavFor: '.wrap-slick3-dots'
+			});
+
 			modal.classList.add('show-modal1');
 		});
 	});
 
-	// Tombol close
 	document.querySelectorAll('.js-hide-modal1').forEach(function (btn) {
 		btn.addEventListener('click', function () {
 			document.querySelector('.js-modal1').classList.remove('show-modal1');

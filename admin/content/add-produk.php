@@ -7,6 +7,7 @@ if (isset($_POST['submit'])) {
   $deskripsi = mysqli_real_escape_string($config, $_POST['deskripsi']);
   $harga = floatval($_POST['harga']);
   $stok = intval($_POST['stok']);
+  $gambar = ($_POST['gambar']);
 } else if (isset($_GET['delete'])) {
   $idDelete = $_GET['delete'];
   $query = mysqli_query($config, "DELETE FROM produk WHERE id='$idDelete'");
@@ -23,8 +24,9 @@ if (isset($_POST['submit'])) {
     $harga = floatval($_POST['harga']);
     $stok = intval($_POST['stok']);
     $id_kategori = intval($_POST['id_kategori']);
+    $gambar = ($_POST['gambar']);
 
-    mysqli_query($config, "UPDATE produk SET nama_produk='$nama_produk', deskripsi='$deskripsi', harga='$harga', id_kategori='$id_kategori', stok='$stok' WHERE id='$idEdit'");
+    mysqli_query($config, "UPDATE produk SET nama_produk='$nama_produk', deskripsi='$deskripsi', harga='$harga', id_kategori='$id_kategori', stok='$stok', gambar = '$gambar' WHERE id='$idEdit'");
     header("Location: ?page=produk&edit=success");
     die;
   }
@@ -84,21 +86,23 @@ $queryCategory = mysqli_query($config, "SELECT * FROM kategori ORDER BY nama_kat
         </div>
         <div class="mb-3">
           <label class="form-label">Deskripsi</label>
-          <textarea id="editor" name="deskripsi" class="form-control" rows="3" style="min-height:100px;"><?= $rowEdit['deskripsi'] ?? '' ?></textarea>
+          <textarea id="editor" name="deskripsi" class="form-control" rows="3" style="min-height:100px;">
+        </textarea>
         </div>
 
         <div class="form-group mb-3">
           <label for="simple-select2">Kategori</label>
-          <select class="form-control select2" id="simple-select2">
+          <select name="id_kategori" class="form-control select2" id="simple-select2" required>
             <optgroup label="Pilih Kategori">
-                <?php while ($kategori = mysqli_fetch_assoc($queryCategory)) : ?>
-              <option value="<?= $kategori['id'] ?>"<?= (isset($rowEdit['id_kategori']) && $rowEdit['id_kategori'] == $kategori['id']) ? 'selected' : '' ?>>
-                <?= $kategori['nama_kategori'] ?>
-              </option>
+              <?php while ($kategori = mysqli_fetch_assoc($queryCategory)) : ?>
+                <option value="<?= $kategori['id'] ?>" <?= (isset($rowEdit['id_kategori']) && $rowEdit['id_kategori'] == $kategori['id']) ? ' selected' : '' ?>>
+                  <?= $kategori['nama_kategori'] ?>
+                </option>
+              <?php endwhile; ?>
             </optgroup>
-            <?php endwhile; ?>
           </select>
         </div>
+
         <div class="mb-3">
           <label class="form-label">Harga</label>
           <input type="number" name="harga" class="form-control" required value="<?= $rowEdit['harga'] ?? '' ?>">

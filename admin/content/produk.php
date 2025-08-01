@@ -21,7 +21,7 @@ $result = mysqli_query($config, $query);
             ?>
             <a href="?page=add-produk" class="btn btn-primary mb-3 btn-sm">Tambah produk</a>
 
-            <table class="table table-borderless table-hover mt-3 datatable">
+            <table class="table table-borderless table-hover mt-3 datatable "  id="myTable">
                 <thead class="table-dark">
                     <tr>
                         <th>No</th>

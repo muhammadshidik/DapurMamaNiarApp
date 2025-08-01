@@ -33,27 +33,27 @@
                           </a>
                           <div class="dropdown-menu" aria-labelledby="ui-elementsDropdown">
                               <a class="nav-link pl-lg-2" href="?page=user">
-                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['user', 'add-user'])) ? 'class="active"' : '' ?>>Penambahan Akses</span>
+                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['user', 'add-user'])) ? 'class="active"' : '' ?>>Menu User</span>
                               </a>
                               <a class="nav-link pl-lg-2" href="?page=level">
-                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['level', 'add-level'])) ? 'class="active"' : '' ?>>Penambahan Role</span>
+                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['level', 'add-level'])) ? 'class="active"' : '' ?>>Menu Role</span>
                               </a>
                               <a class="nav-link pl-lg-2" href="?page=pelanggan">
                                   <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['pelanggan', 'add-pelanggan'])) ? 'class="active"' : '' ?>>Data Pelanggan
                                   </span>
                               </a>
                                   <a class="nav-link pl-lg-2" href="?page=produk">
-                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['produk', 'add-produk'])) ? 'class="active"' : '' ?>>Data Produk
+                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['produk', 'add-produk'])) ? 'class="active"' : '' ?>>Data Produk Makanan
                                   </span>
                               </a>
                               </a>
                                   <a class="nav-link pl-lg-2" href="?page=category">
-                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['category', 'add-category'])) ? 'class="active"' : '' ?>>Data Kategori
+                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['category', 'add-category'])) ? 'class="active"' : '' ?>>Data Kategori Makanan
                                   </span>
                               </a>
                                 </a>
                                   <a class="nav-link pl-lg-2" href="?page=jenisPaket">
-                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['jenisPaket', 'add-jenisPaket'])) ? 'class="active"' : '' ?>>Data Paket Catering
+                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['jenisPaket', 'add-jenisPaket'])) ? 'class="active"' : '' ?>>Data Paket Makanan
                                   </span>
                               </a>
                           </div>
@@ -61,90 +61,8 @@
                       <li class="nav-item">
                           <a class="nav-link" href="?page=menu">
                               <span class="ml-lg-2">Transaksi</span>
-                              <span class="badge badge-pill badge-primary">Menu</span>
+                              <span class="badge badge-pill badge-primary"></span>
                           </a>
-                      </li>
-                      <li class="nav-item dropdown">
-                          <a href="#" id="formsDropdown" class="dropdown-toggle nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <span class="ml-lg-2">Forms</span>
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="formsDropdown">
-                              <a class="nav-link pl-lg-2" href="./form_elements.html"><span class="ml-1">Basic Elements</span></a>
-                              <a class="nav-link pl-lg-2" href="./form_advanced.html"><span class="ml-1">Advanced Elements</span></a>
-                              <a class="nav-link pl-lg-2" href="./form_validation.html"><span class="ml-1">Validation</span></a>
-                              <a class="nav-link pl-lg-2" href="./form_layouts.html"><span class="ml-1">Layouts</span></a>
-                              <a class="nav-link pl-lg-2" href="./form_upload.html"><span class="ml-1">File upload</span></a>
-                          </div>
-                      </li>
-                      <li class="nav-item dropdown">
-                          <a href="#" id="tablesDropdown" class="dropdown-toggle nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <span class="ml-lg-2">Tables</span>
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="tablesDropdown">
-                              <a class="nav-link pl-lg-2" href="./table_basic.html"><span class="ml-1">Basic Tables</span></a>
-                              <a class="nav-link pl-lg-2" href="./table_advanced.html"><span class="ml-1">Advanced Tables</span></a>
-                              <a class="nav-link pl-lg-2" href="./table_datatables.html"><span class="ml-1">Data Tables</span></a>
-                          </div>
-                      </li>
-                      <li class="nav-item dropdown">
-                          <a class="dropdown-toggle nav-link pl-lg-3" href="#" id="chartsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Charts </a>
-                          <ul class="dropdown-menu" aria-labelledby="chartsDropdown">
-                              <a class="nav-link pl-lg-2" href="./chart-inline.html"><span class="ml-1">Inline Chart</span></a>
-                              <a class="nav-link pl-lg-2" href="./chart-chartjs.html"><span class="ml-1">Chartjs</span></a>
-                              <a class="nav-link pl-lg-2" href="./chart-apexcharts.html"><span class="ml-1">ApexCharts</span></a>
-                              <a class="nav-link pl-lg-2" href="./datamaps.html"><span class="ml-1">Datamaps</span></a>
-                          </ul>
-                      </li>
-                      <li class="nav-item dropdown">
-                          <a class="dropdown-toggle nav-link pl-lg-3" href="#" id="appsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Apps </a>
-                          <ul class="dropdown-menu" aria-labelledby="appsDropdown">
-                              <li class="nav-item">
-                                  <a class="nav-link pl-lg-2" href="./calendar.html">
-                                      <span class="ml-1">Calendar</span>
-                                  </a>
-                              </li>
-                              <li class="nav-item dropdown">
-                                  <a class="dropdown-toggle nav-link pl-lg-2" href="#" id="contactDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <span class="ml-1">Contacts</span>
-                                  </a>
-                                  <ul class="dropdown-menu" aria-labelledby="contactDropdown">
-                                      <a class="nav-link pl-lg-2" href="./contacts-list.html"><span class="ml-1">Contact List</span></a>
-                                      <a class="nav-link pl-lg-2" href="./contacts-grid.html"><span class="ml-1">Contact Grid</span></a>
-                                      <a class="nav-link pl-lg-2" href="./contacts-new.html"><span class="ml-1">New Contact</span></a>
-                                  </ul>
-                              </li>
-                              <li class="nav-item dropdown">
-                                  <a class="dropdown-toggle nav-link pl-lg-2" href="#" data-toggle="collapse" id="profileDropdown" aria-expanded="false">
-                                      <span class="ml-1">Profile</span>
-                                  </a>
-                                  <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                                      <a class="nav-link pl-lg-2" href="./profile.html"><span class="ml-1">Overview</span></a>
-                                      <a class="nav-link pl-lg-2" href="./profile-settings.html"><span class="ml-1">Settings</span></a>
-                                      <a class="nav-link pl-lg-2" href="./profile-security.html"><span class="ml-1">Security</span></a>
-                                      <a class="nav-link pl-lg-2" href="./profile-notification.html"><span class="ml-1">Notifications</span></a>
-                                  </ul>
-                              </li>
-                              <li class="nav-item dropdown">
-                                  <a class="dropdown-toggle nav-link pl-lg-2" href="#" data-toggle="collapse" id="fileDropdown" aria-expanded="false">
-                                      <span class="ml-1">File Manager</span>
-                                  </a>
-                                  <ul class="dropdown-menu" aria-labelledby="fileDropdown">
-                                      <a class="nav-link pl-lg-2" href="./files-list.html"><span class="ml-1">Files List</span></a>
-                                      <a class="nav-link pl-lg-2" href="./files-grid.html"><span class="ml-1">Files Grid</span></a>
-                                  </ul>
-                              </li>
-                              <li class="nav-item dropdown">
-                                  <a class="dropdown-toggle nav-link pl-lg-2" href="#" data-toggle="collapse" id="supportDropdown" aria-expanded="false">
-                                      <span class="ml-1">Help Desk</span>
-                                  </a>
-                                  <ul class="dropdown-menu" aria-labelledby="supportDropdown">
-                                      <a class="nav-link pl-lg-2" href="./support-center.html"><span class="ml-1">Home</span></a>
-                                      <a class="nav-link pl-lg-2" href="./support-tickets.html"><span class="ml-1">Tickets</span></a>
-                                      <a class="nav-link pl-lg-2" href="./support-ticket-detail.html"><span class="ml-1">Ticket Detail</span></a>
-                                      <a class="nav-link pl-lg-2" href="./support-faqs.html"><span class="ml-1">FAQs</span></a>
-                                  </ul>
-                              </li>
-                          </ul>
                       </li>
                       <li class="nav-item dropdown more">
                           <a class="dropdown-toggle more-horizontal nav-link" href="#" id="moreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

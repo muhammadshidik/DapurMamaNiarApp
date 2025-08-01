@@ -3,30 +3,25 @@
   <div class="container-menu-desktop">
     <!-- Topbar -->
     <div class="top-bar">
-				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">
-						Free shipping for standard order over $100
-					</div>
+      <div class="content-topbar flex-sb-m h-full container">
+        <div class="left-top-bar">
+          <marquee behavior="scroll" direction="right" scrollamount="5">
+            Selamat datang di website kami!, jl. Muhammad Dahlan Jakarta Selatan
+          </marquee>
 
-					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Help & FAQs
-						</a>
+        </div>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							My Account
-						</a>
+        <div class="right-top-bar flex-w h-full">
+          <a href="#" class="flex-c-m trans-04 p-lr-25">
+            <p class="fa fa-address-book" aria-hidden="true"> Kontak : 0813-1484-1484</p>
+          </a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							EN
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							USD
-						</a>
-					</div>
-				</div>
-			</div>
+          <a href="#" class="flex-c-m trans-04 p-lr-25">
+            <i class="fa fa-envelope-open" aria-hidden="true"> : sidiksadar11@gmail.com</i>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <div class="wrap-menu-desktop">
       <nav class="limiter-menu-desktop container">
