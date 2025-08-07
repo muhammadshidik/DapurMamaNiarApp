@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
     $id_kategori = intval($_POST['id_kategori']);
     $gambar = ($_POST['gambar']);
 
-    mysqli_query($config, "UPDATE produk SET nama_produk='$nama_produk', deskripsi='$deskripsi', harga='$harga', id_kategori='$id_kategori', stok='$stok', gambar = '$gambar' WHERE id='$idEdit'");
+    mysqli_query($config, "UPDATE produk SET nama_produk='$nama_produk', deskripsi='$deskripsi', harga='$harga', id_kategori='$id_kategori', stok='$stok', gambar='$gambar' WHERE id='$idEdit'");
     header("Location: ?page=produk&edit=success");
     die;
   }

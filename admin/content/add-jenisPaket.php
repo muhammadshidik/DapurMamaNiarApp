@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
         </div>
         <div class="mb-3">
           <label class="form-label">Upload Gambar</label>
-          <input value="<?php echo isset($rowEdit['gambar']) ? $rowEdit['gambar'] : '' ?>" type="file" name="image" class="form-control" id="validatedCustomFile" required accept=".jpg,.jpeg,.png">
+          <input name="gambar" value="<?php echo isset($rowEdit['gambar']) ? $rowEdit['gambar'] : '' ?>" type="file" name="image" class="form-control" id="validatedCustomFile" required accept=".jpg,.jpeg,.png">
         </div>
         <div class="">
           <button type="submit" class="btn btn-primary btn-s"

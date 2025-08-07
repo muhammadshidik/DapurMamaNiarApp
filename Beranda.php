@@ -39,6 +39,36 @@ $rowJeniss = mysqli_fetch_all($query, MYSQLI_ASSOC);
 	<link rel="icon" href="admin/content/uploads/Foto/dpn.png" type="image/x-icon">
 	<title>Beranda - Dapur Mama Niar</title>
 	<?php include 'admin/include/css.php' ?>
+	<style>
+		.btn-wa-float {
+			position: fixed;
+			bottom: 20px;
+			left: 20px;
+			/* ganti dari right ke left */
+			z-index: 99;
+			background-color: #25D366;
+			color: white;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			text-align: center;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: background-color 0.3s;
+		}
+
+		.btn-wa-float:hover {
+			background-color: #1ebc5b;
+			text-decoration: none;
+		}
+
+		.symbol-btn-wa i {
+			font-size: 24px;
+			line-height: 1;
+		}
+	</style>
 </head>
 
 <body class="animsition">
@@ -50,17 +80,26 @@ $rowJeniss = mysqli_fetch_all($query, MYSQLI_ASSOC);
 	<!-- Slider -->
 
 	<?php include 'admin/include/slider.php' ?>
+	
 
 	<!-- Banner -->
 
 	<?php include 'admin/include/banner.php' ?>
 
 	<!-- Product -->
+
 	<?php include 'admin/include/content.php' ?>
 
 
 	<!-- Footer -->
 	<?php include 'admin/include/footer.php' ?>
+
+
+	<a href="https://wa.me/6289684758768" target="_blank" class="btn-wa-float" title="Hubungi via WhatsApp">
+		<span class="symbol-btn-wa">
+			<i class="zmdi zmdi-whatsapp"></i>
+		</span>
+	</a>
 
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">

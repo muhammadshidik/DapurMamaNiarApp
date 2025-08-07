@@ -277,7 +277,7 @@ if ($stmt_produk) {
 										<?php echo htmlspecialchars($row_produk['nama_produk']); ?>
 									</p>
 									<span class="stext-105 cl3">
-										Rp.<?php echo number_format($row_produk['harga'], 0, ',', '.'); ?>
+										Rp.<?php echo number_format($row_produk['harga'] * 1000, 0, ',', '.'); ?>
 									</span>
 								</div>
 								<style>
@@ -322,3 +322,4 @@ if ($stmt_produk) {
 		mysqli_close($config);
 		?>
 </section>
+

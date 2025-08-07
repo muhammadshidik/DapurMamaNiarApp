@@ -31,8 +31,8 @@
                       </a>
                   </li>
                    <li class="nav-item">
-                      <a class="nav-link" href="widgets.html">
-                          <span class="ml-lg-2">Testimoni</span>
+                      <a class="nav-link" href="contact.php">
+                          <span class="ml-lg-2">Kontak</span>
                           <!-- <span class="badge badge-pill badge-primary">New</span> -->
                       </a>
                   </li>

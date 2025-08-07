@@ -22,7 +22,7 @@
               <ul class="navbar-nav mr-auto">
                   <?php if ($dataNavbar['id_level'] == 1) : ?>
                       <li class="nav-item">
-                          <a class="nav-link" href="hello.php">
+                          <a class="nav-link" href="Beranda.php">
                               <span class="ml-lg-2">Beranda</span>
                               <!-- <span class="badge badge-pill badge-primary">New</span> -->
                           </a>
@@ -54,6 +54,10 @@
                                 </a>
                                   <a class="nav-link pl-lg-2" href="?page=jenisPaket">
                                   <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['jenisPaket', 'add-jenisPaket'])) ? 'class="active"' : '' ?>>Data Paket Makanan
+                                  </span>
+                              </a>
+                               <a class="nav-link pl-lg-2" href="?page=pos">
+                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['pos', 'tambah-pos'])) ? 'class="active"' : '' ?>>Transaksi
                                   </span>
                               </a>
                           </div>
