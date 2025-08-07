@@ -340,7 +340,7 @@
 		});
 	</script>
 	<!--===============================================================================================-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArAaWEhEP3AN3hc8X0O2Q7UpcX1G5Hliw"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key="></script>
 	<script src="tmp/js/map-custom.js"></script>
 	<!--===============================================================================================-->
 	<script src="tmp/js/main.js"></script>
