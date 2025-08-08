@@ -60,6 +60,10 @@
                                   <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['pos', 'tambah-pos'])) ? 'class="active"' : '' ?>>Transaksi
                                   </span>
                               </a>
+                                 <a class="nav-link pl-lg-2" href="?page=slider">
+                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['slider', 'add-slider'])) ? 'class="active"' : '' ?>>Banner
+                                  </span>
+                              </a>
                           </div>
                       </li>
                       <li class="nav-item">

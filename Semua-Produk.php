@@ -442,7 +442,7 @@ if ($stmt_produk) {
 										alt="IMG-PRODUCT">
 
 									<!-- Tombol langsung ke detail -->
-									<a href="Semua-Produk.php?id=<?php echo $row_produk['id']; ?>"
+									<a href="Detail-Produk.php?id=<?php echo $row_produk['id']; ?>"
 										class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
 										Lihat Detail
 									</a>

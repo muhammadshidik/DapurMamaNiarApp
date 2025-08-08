@@ -33,6 +33,7 @@ if (isset($_POST['register'])) {
 }
 
 $queryCategory = mysqli_query($config, "SELECT * FROM kategori ORDER BY id ASC");
+$queryLevel = mysqli_query($config, "SELECT * FROM level ORDER BY id ASC"); // 🔹 Tambahan supaya $queryLevel ada
 ?>
 
 <!DOCTYPE html>

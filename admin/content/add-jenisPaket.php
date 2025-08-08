@@ -18,7 +18,40 @@ if (isset($_POST['submit'])) {
   if (isset($_POST['edit'])) {
     $nama_paket = mysqli_real_escape_string($config, $_POST['nama_paket']);
     $deskripsi = mysqli_real_escape_string($config, $_POST['deskripsi']);
-    mysqli_query($config, "UPDATE paket_catering SET nama_paket='$nama_paket', deskripsi='$deskripsi' WHERE id='$idEdit'");
+
+    // Ambil gambar lama
+    $gambar = $rowEdit['gambar'];
+
+    // Cek jika upload gambar baru
+    if (!empty($_FILES['image']['name'])) {
+      $image_name = $_FILES['image']['name'];
+      $image_tmp = $_FILES['image']['tmp_name'];
+      $image_error = $_FILES['image']['error'];
+
+      if ($image_error === 0) {
+        $allowed_ext = ['jpg', 'jpeg', 'png', 'gif'];
+        $ext = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
+
+        if (in_array($ext, $allowed_ext)) {
+          $upload_dir = 'admin/content/uploads/Foto/';
+          if (!is_dir($upload_dir)) {
+            mkdir($upload_dir, 0777, true);
+          }
+          $new_image_name = uniqid('paket_', true) . '.' . $ext;
+          $upload_path = $upload_dir . $new_image_name;
+
+          if (move_uploaded_file($image_tmp, $upload_path)) {
+            $gambar = $new_image_name;
+            // Hapus file lama jika ada
+            if (!empty($rowEdit['gambar']) && file_exists($upload_dir . $rowEdit['gambar'])) {
+              unlink($upload_dir . $rowEdit['gambar']);
+            }
+          }
+        }
+      }
+    }
+
+    mysqli_query($config, "UPDATE paket_catering SET nama_paket='$nama_paket', deskripsi='$deskripsi', gambar='$gambar' WHERE id='$idEdit'");
     header("Location: ?page=jenisPaket&edit=success");
     die;
   }
@@ -39,7 +72,7 @@ if (isset($_POST['submit'])) {
     $ext = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
 
     if (in_array($ext, $allowed_ext)) {
-      $new_image_name = uniqid('menu_', true) . '.' . $ext;
+      $new_image_name = uniqid('paket_', true) . '.' . $ext;
       $upload_path = $upload_dir . $new_image_name;
 
       // Buat folder jika belum ada
@@ -77,7 +110,12 @@ if (isset($_POST['submit'])) {
         </div>
         <div class="mb-3">
           <label class="form-label">Upload Gambar</label>
-          <input name="gambar" value="<?php echo isset($rowEdit['gambar']) ? $rowEdit['gambar'] : '' ?>" type="file" name="image" class="form-control" id="validatedCustomFile" required accept=".jpg,.jpeg,.png">
+          <?php if (isset($rowEdit['gambar']) && !empty($rowEdit['gambar'])): ?>
+            <div class="mb-2">
+              <img src="admin/content/uploads/Foto/<?php echo $rowEdit['gambar']; ?>" alt="Preview" style="max-height:100px;">
+            </div>
+          <?php endif; ?>
+          <input type="file" name="image" class="form-control" id="validatedCustomFile" accept=".jpg,.jpeg,.png">
         </div>
         <div class="">
           <button type="submit" class="btn btn-primary btn-s"

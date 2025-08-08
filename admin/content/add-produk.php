@@ -24,9 +24,36 @@ if (isset($_POST['submit'])) {
     $harga = floatval($_POST['harga']);
     $stok = intval($_POST['stok']);
     $id_kategori = intval($_POST['id_kategori']);
-    $gambar = ($_POST['gambar']);
 
-    mysqli_query($config, "UPDATE produk SET nama_produk='$nama_produk', deskripsi='$deskripsi', harga='$harga', id_kategori='$id_kategori', stok='$stok', gambar='$gambar' WHERE id='$idEdit'");
+    // Ambil data lama
+    $oldImage = $rowEdit['gambar'];
+
+    // Proses upload gambar baru (jika ada)
+    $gambar = $oldImage; // default gambar lama
+    if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
+      $allowed_ext = ['jpg', 'jpeg', 'png', 'gif'];
+      $ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
+      if (in_array($ext, $allowed_ext)) {
+        $upload_dir = 'admin/content/uploads/Foto/';
+        if (!is_dir($upload_dir)) {
+          mkdir($upload_dir, 0777, true);
+        }
+        $new_image_name = uniqid('menu_', true) . '.' . $ext;
+        $upload_path = $upload_dir . $new_image_name;
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $upload_path)) {
+          $gambar = $new_image_name;
+          // Hapus gambar lama jika ada
+          if (!empty($oldImage) && file_exists($upload_dir . $oldImage)) {
+            unlink($upload_dir . $oldImage);
+          }
+        }
+      }
+    }
+
+    mysqli_query($config, "UPDATE produk 
+        SET nama_produk='$nama_produk', deskripsi='$deskripsi', harga='$harga', 
+            id_kategori='$id_kategori', stok='$stok', gambar='$gambar' 
+        WHERE id='$idEdit'");
     header("Location: ?page=produk&edit=success");
     die;
   }
