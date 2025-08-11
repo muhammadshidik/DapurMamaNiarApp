@@ -43,7 +43,7 @@ $result = mysqli_query($config, $query);
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td><?= htmlspecialchars($row['nama_produk']) ?></td>
-                                <td><?= htmlspecialchars($row['deskripsi']) ?></td>
+                                <td><?=$row['deskripsi'] ?></td>
                                 <td><?= htmlspecialchars($row['harga']) ?></td>
                                 <td><?= htmlspecialchars($row['nama_kategori']) ?></td>
                                 <td><?= htmlspecialchars($row['stok']) ?></td>

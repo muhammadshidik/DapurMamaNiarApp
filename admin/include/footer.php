@@ -109,7 +109,7 @@
 			<!-- Logo & Info Katering -->
 			<div class="footer-left-content">
 				<div class="old-navbar-branding">
-					<img src="admin/content/uploads/Foto/image.png" alt="Logo Dapur Mama Niar" class="kulina-logo" loading="lazy">
+					<img src="admin/content/uploads/Foto/logo-dapur-mama-niar.png" alt="Logo Dapur Mama Niar" class="kulina-logo" loading="lazy">
 				</div>
 				<div class="footer-menu-group-wrapper">
 					<div class="footer-menu-group">
@@ -168,7 +168,7 @@
 		<!-- Footer Bottom -->
 		<div class="p-t-40">
 			<div class="flex-c-m flex-w p-b-18 footer-bottom-social" style="justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap;">
-				<p class="paragraph-medium-adaeda footer-bottom-follow m-b-0" style="margin: 0; font-size: 1px;">Ikuti kami</p>
+				<p class="paragraph-medium-adaeda footer-bottom-follow m-b-0" style="margin: 0; font-size: 1px;"></p>
 				<a href="#" class="fs-20 cl7 hov-cl1 trans-04" style="font-size: 24px;">
 					<i class="fa fa-facebook"></i>
 				</a>

@@ -31,8 +31,8 @@ if (empty($_SESSION['id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="admin/content/uploads/Foto/dpn.png" type="image/x-icon">
-  <title>Dapur Mama Niar</title>
+  <link rel="icon" href="admin/content/uploads/Foto/logo-dapur-mama-niar.png" type="image/x-icon">
+  <title>Menu admin | Dapur Mama Niar</title>
   <?php include 'admin/inc/css.php' ?>
 </head>
 

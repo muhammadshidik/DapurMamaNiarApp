@@ -1,3 +1,49 @@
+<?php
+include 'admin/controller/koneksi.php';
+
+//untuk menyimpan data dari formulir web ke database.
+// step:
+// Memeriksa apakah ada data yang dikirimkan dari form dengan nama tombol 'simpan'.
+// Ini biasanya terjadi saat pengguna mengklik tombol 'submit' pada formulir HTML.
+if (isset($_POST['simpan'])) {
+    // Jika tombol 'simpan' ditekan, maka kode di bawah ini akan dijalankan.
+
+    // Mengambil data yang dikirimkan melalui metode POST dari formulir HTML.
+    // $_POST adalah array superglobal di PHP yang berisi data yang dikirimkan
+    // dari formulir menggunakan metode POST.
+
+    // Mengambil nilai dari input 'name' dan menyimpannya di variabel $name.
+    $name = $_POST['nama'];
+    // Mengambil nilai dari input 'email' dan menyimpannya di variabel $email.
+    $email = $_POST['email'];
+    // Mengambil nilai dari input 'subject' dan menyimpannya di variabel $subject.
+    // Mengambil nilai dari input 'message' dan menyimpannya di variabel $message.
+    $message = $_POST['message'];
+
+    // Membuat query SQL untuk memasukkan data ke dalam tabel 'contacts'.
+    // 'INSERT INTO contacts' berarti kita ingin menambahkan baris baru ke tabel bernama 'contacts'.
+    // '(name, email, subject, message)' adalah daftar kolom di tabel tempat data akan dimasukkan.
+    // "VALUES ('$name','$email','$subject','$message')" adalah nilai-nilai yang akan dimasukkan
+    // ke masing-masing kolom sesuai urutannya.
+    // '$config' diasumsikan sebagai variabel koneksi ke database yang sudah dibuat sebelumnya.
+    $query = mysqli_query($config, "INSERT INTO contacts (name, email, message)
+                                    VALUES ('$name','$email','$message')");
+
+    // Memeriksa apakah proses query (penyimpanan data ke database) berhasil atau tidak.
+    if ($query) {
+        // Jika query berhasil (data berhasil disimpan ke database),
+        // maka pengguna akan dialihkan kembali ke halaman 'index.php'.
+        // header() digunakan untuk mengirimkan header HTTP mentah, dalam hal ini untuk pengalihan (redirect).
+        // CATATAN PENTING: Seharusnya ada 'Location: ' sebelum 'index.php' untuk redirect yang benar.
+        // Contoh: header("Location: index.php");
+        header("kontak.php"); // BARIS INI KEMUNGKINAN BESAR SALAH DAN HARUSNYA 'Location: index.php'
+    } else {
+        // Jika query gagal (data tidak berhasil disimpan, mungkin ada kesalahan pada database atau query SQL),
+        // maka akan menampilkan pesan "gagal" di browser.
+        echo "gagal";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +51,7 @@
 	<title>Hubungi Kami | Dapur Mama Niar</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="admin/content/uploads/Foto/dpn.png" type="image/x-icon">
+	<link rel="icon" href="admin/content/uploads/Foto/logo-dapur-mama-niar.png" type="image/x-icon">
 	<?php include 'admin/include/css.php' ?>
 
 <body class="animsition">
@@ -27,29 +73,24 @@
 			<div class="wrap-menu-desktop how-shadow1">
 				<nav class="limiter-menu-desktop container">
 					<div class="logo">
-						<img src="admin/content/uploads/Foto/dpn.png" alt="IMG-LOGO" style="height: 52px; width: 52px; margin-right: 10px;">
-						<span class="active menu bold text-body">Dapur Mama Niar</span>
+						<img src="admin/content/uploads/Foto/logo-dpn1.png" alt="IMG-LOGO">
 					</div>
-					<div class="menu-desktop">
+
+					<!-- Dihapus class "menu-desktop" -->
+					<div>
 						<ul class="main-menu">
 							<li>
 								<a href="Beranda.php">Beranda</a>
 							</li>
-
-							<li class="active-menu">
-								<a href="produk.php">Pilihan Produk</a>
-								<ul class="sub-menu">
-									<li><a href="Semua-Produk.php?id_kategori=1">Catering Harian</a></li>
-									<li><a href="produk.php?id_kategori=2">Nasi Kotak</a></li>
-									<li><a href="produk.php?id_kategori=3">Prasmanan</a></li>
-								</ul>
+							<li>
+								<a href="Semua-Produk.php">Produk Kami</a>
 							</li>
-
 							<li>
 								<a href="Tentang.php">Tentang Kami</a>
 							</li>
 						</ul>
 					</div>
+
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
@@ -60,18 +101,66 @@
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
 
-						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>
 					</div>
 				</nav>
 			</div>
 		</div>
+
+		<!-- Header Mobile -->
+		<div class="wrap-header-mobile">
+			<!-- Logo moblie -->
+			<div class="logo-mobile">
+				<img src="admin/content/uploads/Foto/logo-dpn1.png" alt="IMG-LOGO">
+			</div>
+
+			<!-- Icon header -->
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+					<i class="zmdi zmdi-search"></i>
+				</div>
+
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+					<i class="zmdi zmdi-shopping-cart"></i>
+				</div>
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
+					<a type="button" href="index.php" class="btn btn-outline-white" style=" border-radius: 50px !important;">
+						Masuk untuk login
+					</a>
+				</div>
+			</div>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</div>
+		</div>
+
+
+		<!-- Menu Mobile -->
+		<div class="menu-mobile">
+
+			<ul class="main-menu-m">
+				<li>
+					<a href="Beranda.php">Beranda</a>
+				</li>
+				<li>
+					<a href="Semua-Produk.php">Produk Kami</a>
+				</li>
+				<li>
+					<a href="Tentang.php">Tentang Kami</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<!-- mobile -->
 		<!-- Modal Search -->
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
 				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="images/icons/icon-close2.png" alt="CLOSE">
+					<img src="tmp/images/icons/icon-close2.png" alt="CLOSE">
 				</button>
 
 				<form class="wrap-search-header flex-w p-l-15">
@@ -168,31 +257,40 @@
 			</div>
 		</div>
 	</div>
+
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('tmp/images/bg-01.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
 			Hubungi Kami
 		</h2>
 	</section>
+
+	<!-- Content page -->
+	<!-- ... (bagian lainnya tetap sama persis) ... -->
+
 	<!-- Content page -->
 	<section class="bg0 p-t-104 p-b-116">
 		<div class="container">
 			<div class="flex-w flex-tr">
 				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-					<form>
+					<form action="" method="POST">
 						<h4 class="mtext-105 cl2 txt-center p-b-30">
 							Kirimkan Pesan kepada Kami
 						</h4>
 						<div class="bor8 m-b-20 how-pos4-parent">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="nama" placeholder="Masukkan Nama kamu">
+							<img class="how-pos4 pointer-none">
+						</div>
+						<div class="bor8 m-b-20 how-pos4-parent">
 							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email" placeholder="Alamat email kamu">
-							<img class="how-pos4 pointer-none" src="tmp/images/icons/icon-email.png" alt="ICON">
+							<img class="how-pos4 pointer-none">
 						</div>
 
 						<div class="bor8 m-b-30">
-							<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="Apa yang bisa kami bantu?"></textarea>
+							<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="message" placeholder="Apa yang bisa kami bantu?"></textarea>
 						</div>
 
-						<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+						<button type="submit" name="simpan" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
 							Kirim
 						</button>
 					</form>

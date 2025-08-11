@@ -36,7 +36,7 @@ $result = mysqli_query($config, $query);
                             <tr>
                                 <td><?= $no++?></td>
                                 <td><?= htmlspecialchars($row['nama_paket']) ?></td>
-                                <td><?= htmlspecialchars($row['deskripsi']) ?></td>
+                                <td><?= $row['deskripsi'] ?></td>
                                 <td>
                                     <?php
                                     // Construct the image path

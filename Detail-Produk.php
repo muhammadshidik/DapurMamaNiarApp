@@ -40,7 +40,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 	}
 }
 // --- Logika PHP untuk Produk Terkait ---
-$produk_terkait = [];
+$produk_terkai = [];
 if ($produk) {
 	$id_kategori_terkait = $produk['kategori_id'];
 	$id_produk_utama = $produk['id'];
@@ -106,7 +106,7 @@ if ($produk === null) {
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 
-			<span <?php echo htmlspecialchars($produk['kategori_id']); ?> class="stext-109 cl8 hov-cl1 trans-04">
+			<span <?php echo htmlspecialchars($produk['kategori_id']); ?> class="stext-109 cl8 hov-cl1 trans-04 text-dark">
 				<?php echo htmlspecialchars($produk['nama_kategori']); ?>
 				<i class="fa fa-angle-right m-l-9 m-r-10"></i>
 			</span>
@@ -127,10 +127,10 @@ if ($produk === null) {
 							<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
 							<div class="slick3 gallery-lb">
-								<div class="item-slick3" data-thumb="admin/content/uploads/Foto/<?php echo htmlspecialchars($produk['gambar']); ?>">
+								<div class="item-slick3" data-thumb="admin/content/uploads/Foto/<?php echo $produk['gambar']; ?>">
 									<div class="wrap-pic-w pos-relative">
-										<img src="admin/content/uploads/Foto/<?php echo htmlspecialchars($produk['gambar']); ?>" alt="IMG-PRODUCT">
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="admin/content/uploads/Foto/<?php echo htmlspecialchars($produk['gambar']); ?>">
+										<img src="admin/content/uploads/Foto/<?php echo $produk['gambar']; ?>" alt="IMG-PRODUCT">
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="admin/content/uploads/Foto/<?php $produk['gambar']; ?>">
 											<i class="fa fa-expand"></i>
 										</a>
 									</div>
@@ -143,16 +143,25 @@ if ($produk === null) {
 				<div class="col-md-6 col-lg-5 p-b-30">
 					<div class="p-r-50 p-t-5 p-lr-0-lg">
 						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-							<?php echo htmlspecialchars($produk['nama_produk']); ?>
+							<span class="text-dark"><?php echo $produk['nama_produk']; ?></span>
 						</h4>
 
 						<span class="mtext-106 cl2">
-							Rp.<?php echo number_format($produk['harga'] * 1000, 0, ',', '.'); ?>
+							Rp.<?php echo number_format($produk['harga'], 0, ',', '.'); ?> / Box
 						</span>
-
-						<p class="stext-102 cl3 p-t-23 js-modal-desc">
-							<?php echo htmlspecialchars($produk['deskripsi']); ?>
-						</p>
+						<hr>
+						<ul class="mtext-100 cl2">
+							<li><b>Kategori :</b> <?php echo $produk['nama_kategori']; ?> </li>
+							<li><b>Status Produk :</b> <span class="text-success"><?php echo $produk['stok']; ?></span></li>
+							<li><b>Jumlah pesan minimal :</b> 10 Box</li>
+							<li><b>Jumlah pesan maksimal :</b> 200 Box</li>
+							<li class="mtext-100 cl2 mt-3">
+								<b>Deskripsi :</b>
+							</li>
+							<li class="stext-102 cl3 p-t-23 js-modal-desc">
+								<span><?php echo $produk['deskripsi']; ?></span>
+							</li>
+						</ul>
 
 						<div class="p-t-33">
 							<div class="flex-w flex-r-m p-b-10">
@@ -176,7 +185,7 @@ if ($produk === null) {
 
 			<div class="bg6 flex-c-m flex-w size-302 m-t-73 p-tb-15">
 				<span class="stext-107 cl6 p-lr-25">
-					Kategori: <?php echo htmlspecialchars($produk['nama_kategori']); ?>
+					Kategori: <?php echo $produk['nama_kategori']; ?>
 				</span>
 			</div>
 	</section>

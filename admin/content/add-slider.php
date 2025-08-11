@@ -111,13 +111,14 @@ if (isset($_POST['submit'])) {
           <textarea id="editor" style="min-height:100px;" name="deskripsi" class="form-control" rows="3"><?php echo isset($rowEdit['deskripsi']) ? $rowEdit['deskripsi'] : '' ?></textarea>
         </div>
         <div class="mb-3">
-          <label class="form-label">Upload Gambar</label>
-          <?php if (isset($rowEdit['gambar']) && !empty($rowEdit['gambar'])): ?>
-            <div class="mb-2">
-              <img src="admin/content/uploads/Foto/<?php echo $rowEdit['gambar']; ?>" alt="Preview" style="max-height:100px;">
-            </div>
-          <?php endif; ?>
-          <input name="gambar" type="file" class="form-control" id="validatedCustomFile" accept=".jpg,.jpeg,.png">
+          <label for="customFile">Upload Gambar</label>
+          <div class="custom-file">
+            <input name="gambar" type="file" class="custom-file-input" id="customFile" accept=".jpg,.jpeg,.png" <?= isset($_GET['edit']) ? '' : 'required' ?>>
+            <label class="custom-file-label" for="customFile">Choose file</label>
+            <?php if (!empty($rowEdit['gambar'])): ?>
+              <small class="text-muted">Gambar saat ini: <?= $rowEdit['gambar'] ?></small>
+            <?php endif; ?>
+          </div>
         </div>
         <div class="">
           <button type="submit" class="btn btn-primary btn-s"

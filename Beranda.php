@@ -36,7 +36,7 @@ $rowJeniss = mysqli_fetch_all($query, MYSQLI_ASSOC);
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="icon" href="admin/content/uploads/Foto/dpn.png" type="image/x-icon">
+	<link rel="icon" href="admin/content/uploads/Foto/logo-dapur-mama-niar.png" type="image/x-icon">
 	<title>Beranda - Dapur Mama Niar</title>
 	<?php include 'admin/include/css.php' ?>
 	<style>

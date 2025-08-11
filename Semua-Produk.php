@@ -72,7 +72,7 @@ if ($stmt_produk) {
 	<title>Produk | Dapur Mama Niar</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="admin/content/uploads/Foto/dpn.png" type="image/x-icon">
+	<link rel="icon" href="admin/content/uploads/Foto/logo-dapur-mama-niar.png" type="image/x-icon">
 	<?php include 'admin/include/css.php' ?>
 
 <body class="animsition">
@@ -94,24 +94,13 @@ if ($stmt_produk) {
 			<div class="wrap-menu-desktop how-shadow1">
 				<nav class="limiter-menu-desktop container">
 					<div class="logo">
-						<img src="admin/content/uploads/Foto/dpn.png" alt="IMG-LOGO" style="height: 52px; width: 52px; margin-right: 10px;">
-						<span class="active menu bold text-body">Dapur Mama Niar</span>
+						<img src="admin/content/uploads/Foto/logo-dpn1.png" alt="IMG-LOGO">
 					</div>
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
 								<a href="Beranda.php">Beranda</a>
 							</li>
-
-							<li class="active-menu">
-								<a href="produk.php">Pilihan Produk</a>
-								<ul class="sub-menu">
-									<li><a href="produk.php?id_kategori=1">Catering Harian</a></li>
-									<li><a href="produk.php?id_kategori=2">Nasi Kotak</a></li>
-									<li><a href="produk.php?id_kategori=3">Prasmanan</a></li>
-								</ul>
-							</li>
-
 							<li>
 								<a href="Tentang.php">Tentang Kami</a>
 							</li>
@@ -130,10 +119,6 @@ if ($stmt_produk) {
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
-
-						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>
 					</div>
 				</nav>
 			</div>
@@ -154,7 +139,59 @@ if ($stmt_produk) {
 			</div>
 		</div>
 	</header>
+	<!-- Header Mobile -->
+	<div class="wrap-header-mobile">
+		<!-- Logo moblie -->
+		<div class="logo-mobile">
+			<img src="admin/content/uploads/Foto/logo-dpn1.png" alt="IMG-LOGO">
+		</div>
 
+		<!-- Icon header -->
+		<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+			<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+				<i class="zmdi zmdi-search"></i>
+			</div>
+
+			<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+				<i class="zmdi zmdi-shopping-cart"></i>
+			</div>
+			<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
+				<a type="button" href="index.php" class="btn btn-outline-white" style=" border-radius: 50px !important;">
+					Masuk untuk login
+				</a>
+			</div>
+		</div>
+
+		<!-- Button show menu -->
+		<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+			<span class="hamburger-box">
+				<span class="hamburger-inner"></span>
+			</span>
+		</div>
+	</div>
+
+
+	<!-- Menu Mobile -->
+	<div class="menu-mobile">
+
+		<ul class="main-menu-m">
+			<li>
+				<a href="Beranda.php">Beranda</a>
+			</li>
+			<li>
+				<a href="Semua-Produk.php">Produk Kami</a>
+			</li>
+			<li>
+				<a href="Tentang.php">Tentang Kami</a>
+			</li>
+
+			<li>
+				<a href="Kontak.php">Hubungi Kami</a>
+			</li>
+		</ul>
+	</div>
+
+	<!-- mobile -->
 	<!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
@@ -458,19 +495,19 @@ if ($stmt_produk) {
 										</span>
 									</div>
 									<style>
-									/* Perbesar ukuran ikon shopping cart */
-									.icon-cart {
-										font-size: 24px;
-										/* Ubah ukuran sesuai kebutuhan, contoh: 24px */
-										color: #333;
-										/* Optional: ubah warna jika perlu */
-									}
-								</style>
-								<div class="block2-txt-child2 flex-r p-t-3">
-									<a href="Detail-Produk.php?id=<?php echo $row_produk['id']; ?>" class="btn">
-										<i class="zmdi zmdi-shopping-cart"></i>
-									</a>
-								</div>
+										/* Perbesar ukuran ikon shopping cart */
+										.icon-cart {
+											font-size: 24px;
+											/* Ubah ukuran sesuai kebutuhan, contoh: 24px */
+											color: #333;
+											/* Optional: ubah warna jika perlu */
+										}
+									</style>
+									<div class="block2-txt-child2 flex-r p-t-3">
+										<a href="Detail-Produk.php?id=<?php echo $row_produk['id']; ?>" class="btn">
+											<i class="zmdi zmdi-shopping-cart"></i>
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>

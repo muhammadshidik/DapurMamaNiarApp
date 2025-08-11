@@ -7,9 +7,6 @@ require_once 'admin/controller/functions.php'; // Jika Anda memiliki fungsi lain
 $query = "SELECT * FROM banner ORDER BY id DESC";
 $result = mysqli_query($config, $query);
 ?>
-
-
-
 <section class="section-slide">
 	<div class="wrap-slick1">
 		<div class="slick1">
@@ -23,7 +20,7 @@ $result = mysqli_query($config, $query);
 								</span>
 							</div>
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
-								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
+								<h2 class="ltext-104 cl2 p-t-22 p-b-40 respon1">
 									<?= isset($rowBanner['deskripsi']) ? $rowBanner['deskripsi'] : ''; ?>
 								</h2>
 							</div>

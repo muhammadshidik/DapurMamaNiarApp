@@ -5,7 +5,7 @@
 	<title>Tentang Kami | Dapur Mama Niar</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="admin/content/uploads/Foto/dpn.png" type="image/x-icon">
+	<link rel="icon" href="admin/content/uploads/Foto/logo-dapur-mama-niar.png" type="image/x-icon">
 	<?php include 'admin/include/css.php' ?>
 	<style>
 		.btn-wa-float {
@@ -59,8 +59,7 @@
 			<div class="wrap-menu-desktop how-shadow1">
 				<nav class="limiter-menu-desktop container">
 					<div class="logo">
-						<img src="admin/content/uploads/Foto/dpn.png" alt="IMG-LOGO" style="height: 52px; width: 52px; margin-right: 10px;">
-						<span class="active menu bold text-body">Dapur Mama Niar</span>
+						<img src="admin/content/uploads/Foto/logo-dpn1.png" alt="IMG-LOGO">
 					</div>
 					<div class="menu-desktop">
 						<ul class="main-menu">
@@ -68,13 +67,8 @@
 								<a href="Beranda.php">Beranda</a>
 							</li>
 
-							<li class="active-menu">
-								<a href="produk.php">Pilihan Produk</a>
-								<ul class="sub-menu">
-									<li><a href="produk.php?id_kategori=1">Catering Harian</a></li>
-									<li><a href="produk.php?id_kategori=2">Nasi Kotak</a></li>
-									<li><a href="produk.php?id_kategori=3">Prasmanan</a></li>
-								</ul>
+							<li>
+								<a href="Semua-Produk.php">Produk Kami</a>
 							</li>
 
 							<li>
@@ -91,14 +85,59 @@
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
-
-						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>
 					</div>
 				</nav>
 			</div>
 		</div>
+		<!-- Header Mobile -->
+		<div class="wrap-header-mobile">
+			<!-- Logo moblie -->
+			<div class="logo-mobile">
+				<img src="admin/content/uploads/Foto/logo-dpn1.png" alt="IMG-LOGO">
+			</div>
+
+			<!-- Icon header -->
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+					<i class="zmdi zmdi-search"></i>
+				</div>
+
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+					<i class="zmdi zmdi-shopping-cart"></i>
+				</div>
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
+					<a type="button" href="index.php" class="btn btn-outline-white" style=" border-radius: 50px !important;">
+						Masuk untuk login
+					</a>
+				</div>
+			</div>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</div>
+		</div>
+
+
+		<!-- Menu Mobile -->
+		<div class="menu-mobile">
+
+			<ul class="main-menu-m">
+				<li>
+					<a href="Beranda.php">Beranda</a>
+				</li>
+				<li>
+					<a href="Semua-Produk.php">Produk Kami</a>
+				</li>
+				<li>
+					<a href="Kontak.php">Hubungi Kami</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- mobile -->
 		<!-- Modal Search -->
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
@@ -288,18 +327,18 @@
 						<p class="stext-113">
 							Di Dapur Mama Niar, kami memiliki misi untuk:
 
-							1. Menghadirkan cita rasa Nusantara yang otentik ke setiap meja makan, 
-							   dengan resep turun-temurun yang diracik penuh cinta dan ketelitian.
+							1. Menghadirkan cita rasa Nusantara yang otentik ke setiap meja makan,
+							dengan resep turun-temurun yang diracik penuh cinta dan ketelitian.
 
-							2. Menjadi mitra kuliner terpercaya untuk kebutuhan pribadi, 
-							   keluarga, perusahaan, hingga instansi pemerintahan, dengan 
-							   layanan katering yang berkualitas, higienis, dan tepat waktu.
+							2. Menjadi mitra kuliner terpercaya untuk kebutuhan pribadi,
+							keluarga, perusahaan, hingga instansi pemerintahan, dengan
+							layanan katering yang berkualitas, higienis, dan tepat waktu.
 
 							3. Mendukung pelestarian kuliner Indonesia melalui inovasi menu yang tetap
-						 	   menghormati tradisi dan kekayaan rasa dari berbagai daerah di Tanah Air.
+							menghormati tradisi dan kekayaan rasa dari berbagai daerah di Tanah Air.
 
 							4. Memberikan pengalaman kuliner yang memuaskan, baik dari rasa, penyajian,
-							   hingga layanan pelanggan — karena kepuasan Anda adalah semangat kami.
+							hingga layanan pelanggan — karena kepuasan Anda adalah semangat kami.
 						</p>
 
 						<div class="bor16 p-l-29 p-b-9 m-t-22">

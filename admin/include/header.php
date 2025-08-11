@@ -17,25 +17,17 @@
 
         <!-- Logo desktop -->
         <div class="logo">
-          <img src="admin/content/uploads/Foto/dpn.png" alt="IMG-LOGO" style="height: 52px; width: 52px; margin-right: 10px;">
-          <span class="active menu bold text-body">Dapur Mama Niar</span>
+          <img src="admin/content/uploads/Foto/logo-dpn1.png" alt="IMG-LOGO">
         </div>
         <div class="menu-desktop">
           <ul class="main-menu">
-            
+
             <li>
               <a href="Beranda.php">Beranda</a>
             </li>
-
-            <li class="active-menu">
-              <a href="produk.php">Pilihan Produk</a>
-              <ul class="sub-menu">
-                <li><a href="produk.php?id_kategori=1">Catering Harian</a></li>
-                <li><a href="produk.php?id_kategori=2">Nasi Kotak</a></li>
-                <li><a href="produk.php?id_kategori=3">Prasmanan</a></li>
-              </ul>
+            <li>
+              <a href="Semua-Produk.php">Produk Kami</a>
             </li>
-
             <li>
               <a href="Tentang.php">Tentang Kami</a>
             </li>
@@ -53,23 +45,72 @@
             <i class="zmdi zmdi-search"></i>
           </div>
 
-          <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+          <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
             <i class="zmdi zmdi-shopping-cart"></i>
           </div>
-
-          <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-            <i class="zmdi zmdi-favorite-outline"></i>
-          </a>
           <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
             <a type="button" href="index.php" class="btn btn-outline-white" style=" border-radius: 50px !important;">
-              Login
+              Masuk untuk login
             </a>
           </div>
-
         </div>
       </nav>
     </div>
   </div>
+
+  <!-- Header Mobile -->
+  <div class="wrap-header-mobile">
+    <!-- Logo moblie -->
+    <div class="logo-mobile">
+       <img src="admin/content/uploads/Foto/logo-dpn1.png" alt="IMG-LOGO">
+    </div>
+
+    <!-- Icon header -->
+    <div class="wrap-icon-header flex-w flex-r-m m-r-15">
+      <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+        <i class="zmdi zmdi-search"></i>
+      </div>
+
+      <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+        <i class="zmdi zmdi-shopping-cart"></i>
+      </div>
+      <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
+        <a type="button" href="index.php" class="btn btn-outline-white" style=" border-radius: 50px !important;">
+          Masuk untuk login
+        </a>
+      </div>
+    </div>
+
+    <!-- Button show menu -->
+    <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </div>
+  </div>
+
+
+  <!-- Menu Mobile -->
+  <div class="menu-mobile">
+
+    <ul class="main-menu-m">
+      <li>
+        <a href="Beranda.php">Beranda</a>
+      </li>
+      <li>
+        <a href="Semua-Produk.php">Produk Kami</a>
+      </li>
+      <li>
+        <a href="Tentang.php">Tentang Kami</a>
+      </li>
+
+      <li>
+        <a href="Kontak.php">Hubungi Kami</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- mobile -->
 
   <!-- Modal Search -->
   <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
@@ -78,11 +119,11 @@
         <img src="tmp/images/icons/icon-close2.png" alt="CLOSE">
       </button>
 
-      <form class="wrap-search-header flex-w p-l-15">
+      <form class="wrap-search-header flex-w p-l-10">
         <button class="flex-c-m trans-04">
           <i class="zmdi zmdi-search"></i>
         </button>
-        <input class="plh3" type="text" name="search" placeholder="Search...">
+        <input class="plh3" type="text" name="search" placeholder="Cari apa yang ingin dibantu..">
       </form>
     </div>
   </div>

@@ -19,4 +19,5 @@
 <link rel="stylesheet" href="template/css/app-dark.css" id="darkTheme">
 
 
-<!-- organic -->
+<!-- Summernote -->
+ <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">

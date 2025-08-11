@@ -4,9 +4,9 @@ require_once 'admin/controller/functions.php';
 
 if (isset($_POST['submit'])) {
   $name = mysqli_real_escape_string($config, $_POST['nama_produk']);
-  $deskripsi = mysqli_real_escape_string($config, $_POST['deskripsi']);
+  $deskripsi = $_POST['deskripsi'];
   $harga = floatval($_POST['harga']);
-  $stok = intval($_POST['stok']);
+  $stok = $_POST['stok'];
   $gambar = ($_POST['gambar']);
 } else if (isset($_GET['delete'])) {
   $idDelete = $_GET['delete'];
@@ -20,9 +20,9 @@ if (isset($_POST['submit'])) {
 
   if (isset($_POST['edit'])) {
     $nama_produk = mysqli_real_escape_string($config, $_POST['nama_produk']);
-    $deskripsi = mysqli_real_escape_string($config, $_POST['deskripsi']);
+    $deskripsi =  $_POST['deskripsi'];
     $harga = floatval($_POST['harga']);
-    $stok = intval($_POST['stok']);
+    $stok = $_POST['stok'];
     $id_kategori = intval($_POST['id_kategori']);
 
     // Ambil data lama
@@ -59,9 +59,9 @@ if (isset($_POST['submit'])) {
   }
 } else if (isset($_POST['add'])) {
   $nama_produk = mysqli_real_escape_string($config, $_POST['nama_produk']);
-  $deskripsi = mysqli_real_escape_string($config, $_POST['deskripsi']);
+  $deskripsi =$_POST['deskripsi'];
   $harga = floatval($_POST['harga']);
-  $stok = intval($_POST['stok']);
+  $stok = $_POST['stok'];
   $id_kategori  = intval($_POST['id_kategori']);
   // Proses upload gambar
   $image_name = $_FILES['image']['name'];
@@ -100,6 +100,21 @@ if (isset($_POST['submit'])) {
 // Ambil data kategori (pastikan queryCategory didefinisikan)
 $queryCategory = mysqli_query($config, "SELECT * FROM kategori ORDER BY nama_kategori ASC");
 ?>
+<style>
+  .note-editor .dropdown-toggle::after{
+    all:unset ;
+  }
+
+  .note-editor .note-dropdown-menu{
+    box-sizing: content-box;
+  }
+
+.note-editor .note-modal-footer{
+  box-sizing: content-box;
+}
+
+
+</style>
 <div class="container mt-4">
   <div class="card shadow">
     <div class="card-header">
@@ -113,7 +128,7 @@ $queryCategory = mysqli_query($config, "SELECT * FROM kategori ORDER BY nama_kat
         </div>
         <div class="mb-3">
           <label class="form-label">Deskripsi</label>
-          <textarea id="editor" name="deskripsi" class="form-control" rows="3" style="min-height:100px;">
+          <textarea name="deskripsi" class="form-control summernote" rows="3" style="min-height:100px;">
         </textarea>
         </div>
 
@@ -136,7 +151,7 @@ $queryCategory = mysqli_query($config, "SELECT * FROM kategori ORDER BY nama_kat
         </div>
         <div class="mb-3">
           <label class="form-label">Stok</label>
-          <input type="number" name="stok" class="form-control" required value="<?= $rowEdit['stok'] ?? '' ?>">
+          <input type="text" name="stok" class="form-control" required value="<?= $rowEdit['stok'] ?? '' ?>">
         </div>
         <div class="form-group mb-3">
           <label for="customFile">Upload Gambar</label>

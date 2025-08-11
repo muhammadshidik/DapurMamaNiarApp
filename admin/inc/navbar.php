@@ -8,8 +8,8 @@
     ?>
   <nav class="navbar navbar-expand-lg navbar-light bg-white flex-row border-bottom shadow">
       <div class="container-fluid">
-          <a class="navbar-brand mx-lg-1 mr-0" href="./index.html">
-              <img src="admin/content/uploads/Foto/dpn.png" alt="Logo" style="height: 52px; width: 52px; margin-right: 10px;">
+          <a class="navbar-brand mx-lg-1 mr-0" href="">
+              <img src="admin/content/uploads/Foto/logo-dapur-mama-niar.png" alt="Logo" style="height: 52px; width: 52px; margin-right: 10px;">
               <span class="bold fs-5 text-body">Dapur Mama Niar</span>
           </a>
           <button class="navbar-toggler mt-2 mr-auto toggle-sidebar text-muted">
@@ -62,6 +62,10 @@
                               </a>
                                  <a class="nav-link pl-lg-2" href="?page=slider">
                                   <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], ['slider', 'add-slider'])) ? 'class="active"' : '' ?>>Banner
+                                  </span>
+                              </a>
+                              <a class="nav-link pl-lg-2" href="?page=contact">
+                                  <span class="ml-1" <?= (isset($_GET['page']) && in_array($_GET['page'], [ 'contact'])) ? 'class="active"' : '' ?>>Kontak
                                   </span>
                               </a>
                           </div>

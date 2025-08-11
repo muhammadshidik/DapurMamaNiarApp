@@ -278,7 +278,6 @@ if ($stmt_produk) {
 									</p>
 									<span class="stext-105 cl3">
 										Rp.<?php echo number_format($row_produk['harga'], 0, ',', '.'); ?>
-									</span>
 								</div>
 								<style>
 									/* Perbesar ukuran ikon shopping cart */

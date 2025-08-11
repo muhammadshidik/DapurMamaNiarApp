@@ -1,18 +1,15 @@
 <div class="sec-banner bg0 p-t-80 p-b-50">
-		<div class="container">
-			<div class="p-b-10">
-				<h5 class="ltext-102 cl5">
-					Pilihan Paket
-				</h5>
-				<h5 style="margin-top : 30px; ">Pilihan Paket untuk pesta, catering harian / kantor mulai dari 15 ribu sampai 30 ribu untuk prasmanan, segera pesan</h5>
-				<br>
-				<div class="mb-3" align="right">
-					<button  class="btn btn-success">Pesan Sekarang </button>
-				</div>
+	<div class="container">
+		<div class="p-b-10">
+			<h5 class="ltext-102 cl5">
+				Pilihan Paket
+			</h5>
+			<br>
 
-			</div>
+		</div>
 
-			<div class="row">
+		<div class="row">
+			<?php if ($rowJeniss && mysqli_num_rows($rowJeniss) > 0): ?>
 				<?php foreach ($rowJeniss as $rowJenis): ?>
 					<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 						<!-- Block1 -->
@@ -39,6 +36,11 @@
 						</div>
 					</div>
 				<?php endforeach ?>
-			</div>
+			<?php else: ?>
+				<div class="col-12 text-center">
+					<p class="stext-106 cl6">Tidak ada paket yang ditemukan untuk kategori ini.</p>
+				</div>
+			<?php endif; ?>
 		</div>
 	</div>
+</div>
