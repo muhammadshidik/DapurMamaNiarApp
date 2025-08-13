@@ -99,7 +99,7 @@ $queryLevel = mysqli_query($config, "SELECT * FROM level ORDER BY id ASC"); // ð
 
 <div class="card">
    <div class="text-center mb-4">
-      <img src="admin/content/uploads/Foto/dpn.png" alt="Logo" class="mb-3" style="max-width: 100px;">
+      <img src="admin/content/uploads/Foto/logo-dapur-mama-niar.png" alt="Logo" class="mb-3" style="max-width: 100px;">
       <h2 class="fw-semibold">Dapur Mama Niar</h2>
       <p class="text-muted mb-0">Silakan daftarkan akun Anda</p>
     </div> 

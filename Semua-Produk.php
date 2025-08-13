@@ -479,10 +479,10 @@ if ($stmt_produk) {
 										alt="IMG-PRODUCT">
 
 									<!-- Tombol langsung ke detail -->
-									<a href="Detail-Produk.php?id=<?php echo $row_produk['id']; ?>"
+									<button onclick="window.open('Detail-Produk.php?id=<?php echo $row_produk['id']; ?>')"
 										class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
 										Lihat Detail
-									</a>
+									</button>
 								</div>
 
 								<div class="block2-txt flex-w flex-t p-t-14">
@@ -491,7 +491,7 @@ if ($stmt_produk) {
 											<?php echo htmlspecialchars($row_produk['nama_produk']); ?>
 										</p>
 										<span class="stext-105 cl3">
-											Rp.<?php echo number_format($row_produk['harga'] * 1000, 0, ',', '.'); ?>
+											Rp.<?php echo number_format($row_produk['harga'], 0, ',', '.'); ?>
 										</span>
 									</div>
 									<style>

@@ -29,7 +29,7 @@ if (isset($_POST['login'])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login | Dapur Mama Niar</title>
- <link rel="icon" href="admin/content/uploads/Foto/dpn.png" type="image/x-icon">
+ <link rel="icon" href="admin/content/uploads/Foto/logo-dapur-mama-niar.png" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -92,7 +92,7 @@ if (isset($_POST['login'])) {
 
   <div class="login-card">
     <div class="text-center mb-4">
-      <img  src="admin/content/uploads/Foto/dpn.png" alt="Logo" class="mb-3" style="max-width: 100px;" type="image/x-icon">
+      <img  src="admin/content/uploads/Foto/logo-dapur-mama-niar.png" alt="Logo" class="mb-3" style="max-width: 100px;" type="image/x-icon">
       <h2 class="fw-semibold">Dapur Mama Niar</h2>
       <p class="text-muted mb-0">Silakan masuk ke akun Anda</p>
     </div>

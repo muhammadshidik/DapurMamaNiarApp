@@ -94,28 +94,29 @@ if ($produk === null) {
 	<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 	</div>
 
-	<div class="container  p-t-100">
-		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="Beranda.php" class="stext-109 cl8 hov-cl1 trans-04">
-				Beranda
-				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-			</a>
+	<div class="container p-t-100">
+	<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg align-items-center" style="display: flex;">
+		<a href="Beranda.php" class="stext-109 cl8 hov-cl1 trans-04">
+			Beranda
+			<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+		</a>
 
-			<a href="Semua-Produk.php" class="stext-109 cl8 hov-cl1 trans-04">
-				Produk
-				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-			</a>
+		<a href="Semua-Produk.php" class="stext-109 cl8 hov-cl1 trans-04">
+			Produk
+			<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+		</a>
 
-			<span <?php echo htmlspecialchars($produk['kategori_id']); ?> class="stext-109 cl8 hov-cl1 trans-04 text-dark">
-				<?php echo htmlspecialchars($produk['nama_kategori']); ?>
-				<i class="fa fa-angle-right m-l-9 m-r-10"></i>
-			</span>
+		<span <?php echo htmlspecialchars($produk['kategori_id']); ?> class="stext-109 cl8 hov-cl1 trans-04 text-dark">
+			<?php echo htmlspecialchars($produk['nama_kategori']); ?>
+			<i class="fa fa-angle-right m-l-9 m-r-10"></i>
+		</span>
 
-			<span class="stext-109 cl4">
-				<?php echo htmlspecialchars($produk['nama_produk']); ?>
-			</span>
-		</div>
+		<span class="stext-109 cl4">
+			<?php echo htmlspecialchars($produk['nama_produk']); ?>
+		</span>
 	</div>
+</div>
+
 
 	<section class="sec-product-detail bg0 p-t-65 p-b-60">
 		<div class="container">
@@ -166,14 +167,25 @@ if ($produk === null) {
 						<div class="p-t-33">
 							<div class="flex-w flex-r-m p-b-10">
 								<div class="size-204 flex-w flex-m respon6-next">
-
-									<button onclick="window.open('https://wa.me/6289684758768?text=Halo%20admin%2C%20saya%20ingin%20pesan%20produk%20ini', '_blank')"
-										class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+									<button onclick="pesanSekarang()"
+										class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
 										Pesan Sekarang
 									</button>
-
-
 								</div>
+
+								<script>
+									function pesanSekarang() {
+										// Buka WhatsApp di tab baru
+										window.open(
+											'https://wa.me/6289684758768?text=Halo%20admin%2C%20saya%20ingin%20pesan%20produk%20ini',
+											'_blank'
+										);
+
+										// Langsung redirect tab sekarang ke halaman semua produk
+												window.history.back();; // ganti sesuai URL daftar semua produk
+									}
+								</script>
+
 							</div>
 						</div>
 

@@ -1,11 +1,8 @@
 <?php
-// produk.php - Halaman untuk menampilkan daftar produk dengan filter kategori dinamis
 
-// Pastikan path ke file config dan fungsi Anda benar
 require_once 'admin/controller/koneksi.php';
 require_once 'admin/controller/functions.php'; // Jika Anda memiliki fungsi lain yang relevan
 
-// --- Logika PHP untuk Kategori ---
 // Query untuk mengambil semua kategori beserta deskripsi dan gambarnya
 $sql_kategori = "SELECT id, nama_kategori FROM kategori ORDER BY nama_kategori ASC";
 $result_kategori = mysqli_query($config, $sql_kategori);
@@ -80,7 +77,7 @@ if ($stmt_produk) {
 				<button
 					class="btn btn-white stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 <?php echo ($id_kategori_filter === null) ? 'how-active1 kategori-btn-active' : ''; ?>"
 					data-filter="*" style="border-radius: 50px !important;">
-					Semua Produk
+					Semua
 				</button>
 
 				<!-- Tombol Kategori Dinamis -->
@@ -132,21 +129,10 @@ if ($stmt_produk) {
 				<div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
 					<div class="filter-col1 p-r-15 p-b-27">
 						<div class="mtext-102 cl2 p-b-15">
-							Sort By
+							Urutkan berdasarkan
 						</div>
 
 						<ul>
-							<li class="p-b-6">
-								<a href="#" class="filter-link stext-106 trans-04">
-									Default
-								</a>
-							</li>
-
-							<li class="p-b-6">
-								<a href="#" class="filter-link stext-106 trans-04">
-									Popularity
-								</a>
-							</li>
 
 							<li class="p-b-6">
 								<a href="#" class="filter-link stext-106 trans-04">
@@ -162,13 +148,13 @@ if ($stmt_produk) {
 
 							<li class="p-b-6">
 								<a href="#" class="filter-link stext-106 trans-04">
-									Price: Low to High
+									Harga: Rendah ke Tertinggi
 								</a>
 							</li>
 
 							<li class="p-b-6">
 								<a href="#" class="filter-link stext-106 trans-04">
-									Price: High to Low
+									Price: Tertinggi ke Rendah
 								</a>
 							</li>
 						</ul>
@@ -178,41 +164,33 @@ if ($stmt_produk) {
 						<div class="mtext-102 cl2 p-b-15">
 							Harga
 						</div>
-
 						<ul>
 							<li class="p-b-6">
 								<a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-									All
+									Semua
 								</a>
 							</li>
 
 							<li class="p-b-6">
 								<a href="#" class="filter-link stext-106 trans-04">
-									$0.00 - $50.00
+									Rp.15.000 - Rp.50.000
+							</li>
+
+							<li class="p-b-6">
+								<a href="#" class="filter-link stext-106 trans-04">
+									Rp.50.000 - Rp.100.000
 								</a>
 							</li>
 
 							<li class="p-b-6">
 								<a href="#" class="filter-link stext-106 trans-04">
-									$50.00 - $100.00
+									Rp.100.000 - Rp.500.000
 								</a>
 							</li>
 
 							<li class="p-b-6">
 								<a href="#" class="filter-link stext-106 trans-04">
-									$100.00 - $150.00
-								</a>
-							</li>
-
-							<li class="p-b-6">
-								<a href="#" class="filter-link stext-106 trans-04">
-									$150.00 - $200.00
-								</a>
-							</li>
-
-							<li class="p-b-6">
-								<a href="#" class="filter-link stext-106 trans-04">
-									$200.00+
+									Rp.500.00++
 								</a>
 							</li>
 						</ul>
@@ -220,13 +198,13 @@ if ($stmt_produk) {
 
 					<div class="filter-col4 p-b-27">
 						<div class="mtext-102 cl2 p-b-15">
-							Tags
+							Tag
 						</div>
 
 						<div class="flex-w p-t-4 m-r--5">
 							<a href="#"
 								class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-								Fashion
+								Makanan
 							</a>
 
 							<a href="#"
@@ -265,10 +243,12 @@ if ($stmt_produk) {
 									alt="IMG-PRODUCT">
 
 								<!-- Tombol langsung ke detail -->
-								<a href="Detail-Produk.php?id=<?php echo $row_produk['id']; ?>"
-									class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+
+
+								<button onclick="window.open('Detail-Produk.php?id=<?php echo $row_produk['id']; ?>')"
+									class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" ?>
 									Lihat Detail
-								</a>
+								</button>
 							</div>
 
 							<div class="block2-txt flex-w flex-t p-t-14">
@@ -306,9 +286,9 @@ if ($stmt_produk) {
 
 		<!-- Load more -->
 		<div class="flex-c-m flex-w w-full p-t-45">
-			<a href="Semua-Produk.php" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+			<button onclick="window.open('Semua-Produk.php')" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
 				More Products
-			</a>
+			</button>
 		</div>
 		<?php
 		// Tutup prepared statement dan koneksi database
