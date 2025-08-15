@@ -66,173 +66,12 @@ if ($stmt_produk) {
 	<div class="container">
 		<div class="p-b-10">
 			<h5 class="ltext-102 cl5">
-				Kategori Produk
+				Daftar Makanan
 			</h5>
 		</div>
 
-		<div class="flex-w flex-sb-m p-b-52">
-			<div class="flex-w flex-l-m filter-tope-group m-tb-10" style="width: 100%; justify-content: center;">
-				<!-- Tombol "Semua Produk" -->
-				<!-- Pastikan ini juga BUTTON jika Isotope.js hanya mendengarkan BUTTON -->
-				<button
-					class="btn btn-white stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 <?php echo ($id_kategori_filter === null) ? 'how-active1 kategori-btn-active' : ''; ?>"
-					data-filter="*" style="border-radius: 50px !important;">
-					Semua
-				</button>
 
-				<!-- Tombol Kategori Dinamis -->
-				<?php
-				// Pastikan $result_kategori sudah ada dari bagian PHP di atas
-				if (mysqli_num_rows($result_kategori) > 0) {
-					while ($row_kategori = mysqli_fetch_assoc($result_kategori)) {
-						// Tentukan apakah kategori ini sedang aktif
-						$is_active = ($id_kategori_filter == $row_kategori['id']) ? 'how-active1 kategori-btn-active' : '';
-
-						// Kunci perubahan: Menggunakan <button> daripada <a>
-						echo '<button type="button" '; // Gunakan type="button" agar tidak submit form
-						echo 'class="btn btn-white stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 ' . $is_active . '" ';
-						echo 'data-filter=".category-' . htmlspecialchars($row_kategori['id']) . '" '; // Penting untuk Isotope.js
-						echo 'style="border-radius: 50px !important;">';
-						echo htmlspecialchars($row_kategori['nama_kategori']);
-						echo '</button>';
-					}
-				}
-				?>
-			</div>
-			<div class="flex-w flex-c-m m-tb-10">
-				<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
-					<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
-					<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-					Sortir
-				</div>
-
-				<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
-					<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
-					<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-					Cari
-				</div>
-			</div>
-
-			<!-- Search product -->
-			<div class="dis-none panel-search w-full p-t-10 p-b-15">
-				<div class="bor8 dis-flex p-l-15">
-					<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-
-					<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product"
-						placeholder="Search">
-				</div>
-			</div>
-			<!-- Filter -->
-			<div class="dis-none panel-filter w-full p-t-10">
-				<div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
-					<div class="filter-col1 p-r-15 p-b-27">
-						<div class="mtext-102 cl2 p-b-15">
-							Urutkan berdasarkan
-						</div>
-
-						<ul>
-
-							<li class="p-b-6">
-								<a href="#" class="filter-link stext-106 trans-04">
-									Average rating
-								</a>
-							</li>
-
-							<li class="p-b-6">
-								<a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-									Newness
-								</a>
-							</li>
-
-							<li class="p-b-6">
-								<a href="#" class="filter-link stext-106 trans-04">
-									Harga: Rendah ke Tertinggi
-								</a>
-							</li>
-
-							<li class="p-b-6">
-								<a href="#" class="filter-link stext-106 trans-04">
-									Price: Tertinggi ke Rendah
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<div class="filter-col2 p-r-15 p-b-27">
-						<div class="mtext-102 cl2 p-b-15">
-							Harga
-						</div>
-						<ul>
-							<li class="p-b-6">
-								<a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-									Semua
-								</a>
-							</li>
-
-							<li class="p-b-6">
-								<a href="#" class="filter-link stext-106 trans-04">
-									Rp.15.000 - Rp.50.000
-							</li>
-
-							<li class="p-b-6">
-								<a href="#" class="filter-link stext-106 trans-04">
-									Rp.50.000 - Rp.100.000
-								</a>
-							</li>
-
-							<li class="p-b-6">
-								<a href="#" class="filter-link stext-106 trans-04">
-									Rp.100.000 - Rp.500.000
-								</a>
-							</li>
-
-							<li class="p-b-6">
-								<a href="#" class="filter-link stext-106 trans-04">
-									Rp.500.00++
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<div class="filter-col4 p-b-27">
-						<div class="mtext-102 cl2 p-b-15">
-							Tag
-						</div>
-
-						<div class="flex-w p-t-4 m-r--5">
-							<a href="#"
-								class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-								Makanan
-							</a>
-
-							<a href="#"
-								class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-								Lifestyle
-							</a>
-
-							<a href="#"
-								class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-								Denim
-							</a>
-
-							<a href="#"
-								class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-								Streetstyle
-							</a>
-
-							<a href="#"
-								class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-								Crafts
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="produk-container" class="row isotope-grid">
+		<div id="produk-container" class="row isotope-grid mt-4">
 			<?php if ($result_produk && mysqli_num_rows($result_produk) > 0): ?>
 				<?php while ($row_produk = mysqli_fetch_assoc($result_produk)): ?>
 					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item category-<?php echo htmlspecialchars($row_produk['kategori_id']); ?>">
@@ -287,7 +126,7 @@ if ($stmt_produk) {
 		<!-- Load more -->
 		<div class="flex-c-m flex-w w-full p-t-45">
 			<button onclick="window.open('Semua-Produk.php')" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-				More Products
+				Lebih Banyak
 			</button>
 		</div>
 		<?php
